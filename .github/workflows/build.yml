@@ -3,19 +3,35 @@ name: build-ci
 on: [push]
 
 jobs:
-  build:
-    name: maven build
+  test:
+    name: maven test
     runs-on: ubuntu-latest
     
     steps:
       - uses: actions/checkout@v3
-      - name: Set up JDK 11
+      - name: Run Tests
+        uses: actions/setup-java@v3
+        with:
+          java-version: '11'
+          distribution: 'temurin'
+          cache: maven
+      - name: Run Tests with Maven
+        run: mvn test
+
+  build:
+    name: maven package
+    runs-on: ubuntu-latest
+    needs: test
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: build & Package
         uses: actions/setup-java@v3
         with:
           java-version: '11'
           distribution: 'temurin'
           cache: maven
       - name: Build with Maven
-        run: mvn --batch-mode --update-snapshots package
+        run: mvn --batch-mode --update-snapshots package -DskipTests=true
     
     
