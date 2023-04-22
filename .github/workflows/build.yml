@@ -5,7 +5,7 @@ on: [push]
 jobs:
   build:
     name: maven build
-    runs-on: ubuntu
+    runs-on: ubuntu-latest
     
     steps:
       - uses: actions/checkout@v3
