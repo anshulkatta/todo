@@ -28,10 +28,15 @@ public class TodoController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping(Constants.GET_BY_ID)
     public ResponseEntity<TodoItem> getTodoItemById(@PathVariable Long id) {
         TodoItem todoItem = todoService.getTodoItemById(id);
         return todoItem != null ? ResponseEntity.ok(todoItem) :  ResponseEntity.notFound().build();
+    }
+
+    @GetMapping(Constants.GET_ALL)
+    public ResponseEntity<Iterable<TodoItem>> getAllTodoItems() {
+        return ResponseEntity.ok(todoService.getAllItems());
     }
 
 }
