@@ -1,4 +1,3 @@
-import React from 'react'
 import ViewTodoItem from 'src/components/todo-item/ViewTodoItem'
 import 'src/index.css'
 
