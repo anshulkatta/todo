@@ -1,11 +1,9 @@
-import ViewTodoItem from 'src/components/todo-item/ViewTodoItem'
+import ListTodoItems from 'src/components/todo-item/ListTodoItems'
 
 export default function TodoBrowser() {
-    const obj = {title: 'test'}
     return (
         <>
-            <ViewTodoItem
-                todoItem={obj} />
+            <ListTodoItems/>
         </>
     )
 }
