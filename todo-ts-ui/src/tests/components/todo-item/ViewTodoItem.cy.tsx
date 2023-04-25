@@ -10,7 +10,6 @@ describe('<ViewTodoItem />', () => {
   }
 
   it('renders', () => {
-    // see: https://on.cypress.io/mounting-react
     cy.mount(<ViewTodoItem todoItem={todoItem} />)
   })
 })
