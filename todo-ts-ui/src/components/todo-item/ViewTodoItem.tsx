@@ -1,13 +1,15 @@
 import React from 'react';
 import TodoItemProp from 'src/interfaces/common-interfaces'
 import { CheckCircleIcon } from '@heroicons/react/20/solid'
+import { ExclamationCircleIcon } from '@heroicons/react/20/solid'
 
 const ViewTodoItem: React.FC<TodoItemProp> = ({ todoItem }) => {
-    const {title} = todoItem
+    const {title, completed} = todoItem
     return (
         <>
-            <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg shadow-cyan-800/50 space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
-                <CheckCircleIcon className="h-8 w-8 text-blue-500" />
+            <div className="py-8 px-8 max-w-sm mx-auto bg-white rounded-xl shadow-lg shadow-stone-800/50 
+            hover:shadow-sky-800 space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6">
+                {completed ? <CheckCircleIcon className="h-8 w-8 text-blue-500" /> : <ExclamationCircleIcon className="h-8 w-8 text-rose-500" />}
                     <div className="text-center space-y-2 sm:text-left">
                         <div className="space-y-0.5">
                             <p className="text-lg text-black font-semibold">

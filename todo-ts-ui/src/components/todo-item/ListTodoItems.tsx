@@ -12,7 +12,13 @@ export default function ListTodoItems() {
     return (
         <>
             {!_.isEmpty(data) ? data?.map(item => {
-                return (<ViewTodoItem todoItem={item} />)
+                return (
+                    <div className='flex items-center '>
+                        <div className="flex flex-col pb-5">
+                            <ViewTodoItem todoItem={item} />
+                        </div>
+                    </div>
+                )
             }) : null}
         </>
     )
