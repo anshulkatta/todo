@@ -5,9 +5,10 @@
       "src/*": ["./src/*"]
     },
     "target": "es5",
+    "types": ["cypress"],
     "lib": [
       "dom",
-      "dom.iterable",
+      "dom.iterable", 
       "esnext"
     ],
     "allowJs": true,
@@ -25,6 +26,7 @@
     "jsx": "react-jsx"
   },
   "include": [
-    "src"
+    "src",
+    "**/*.ts"
   ]
 }

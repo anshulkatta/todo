@@ -1,7 +1,13 @@
 export default class TodoItem {
-    title: string;
+    id: number
+    title: string
+    description: string
+    completed: boolean
 
-    constructor(title:string) {
-        this.title = title;
+    constructor(title: string, id: number, description: string, completed: boolean) {
+        this.title = title
+        this.id = id
+        this.description = description
+        this.completed = completed
     }
 }
