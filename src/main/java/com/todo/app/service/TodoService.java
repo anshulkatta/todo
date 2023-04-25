@@ -21,8 +21,15 @@ public class TodoService {
     public Iterable<TodoItem> getAllItems() {
         List<TodoItem> todoItems = new ArrayList<>();
         TodoItem todoItem = new TodoItem();
-        todoItem.setTitle("Todo 1");
+        todoItem.setTitle("Todo Item 1");
+        todoItem.setCompleted(false);
         todoItems.add(todoItem);
+
+        TodoItem todoItem2 = new TodoItem();
+        todoItem2.setTitle("Todo Item 2");
+        todoItem2.setCompleted(true);
+        todoItems.add(todoItem2);
+
         return todoItems;
     }
 }
