@@ -7,7 +7,7 @@ import ViewTodoItem from 'src/components/todo-item/ViewTodoItem';
 const {GET_ALL_TODO_ITEMS} = GET_PATHS
 
 export default function ListTodoItems() {
-    const {data, isLoading, error} = useFetch<TodoItem>(GET_ALL_TODO_ITEMS)
+    const {data} = useFetch<TodoItem>(GET_ALL_TODO_ITEMS)
 
     return (
         <>
