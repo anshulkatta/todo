@@ -1,12 +1,12 @@
 import React from 'react';
-import TodoItemProp from 'src/interfaces/common-interfaces'
+import ViewTodoItemProp from 'src/interfaces/common-interfaces'
 import { CheckCircleIcon } from '@heroicons/react/20/solid'
 import { ExclamationCircleIcon } from '@heroicons/react/20/solid'
 import {GET_PATHS} from 'src/api/paths'
 
 const {POST_MARK_COMPLETE} = GET_PATHS
 
-const ViewTodoItem: React.FC<TodoItemProp> = ({ todoItem }) => {
+const ViewTodoItem: React.FC<ViewTodoItemProp> = ({ todoItem, setRefreshEvent }) => {
     const {title, completed} = todoItem
 
     const toggleComplete = () => {
@@ -14,7 +14,9 @@ const ViewTodoItem: React.FC<TodoItemProp> = ({ todoItem }) => {
             method: 'post',
             headers: {'Content-Type':'application/json'},
             body: JSON.stringify(todoItem.id)
-        });
+        }).finally(() => {
+            setRefreshEvent((prevState: any) => !prevState)
+        })
     }
 
     return (

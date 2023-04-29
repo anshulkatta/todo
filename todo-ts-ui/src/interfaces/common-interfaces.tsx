@@ -1,5 +1,6 @@
 import TodoItem from 'src/model/TodoItem'
 
-export default interface TodoItemProp {
-  todoItem: TodoItem;
+export default interface ViewTodoItemProp {
+  todoItem: TodoItem,
+  setRefreshEvent: Function
 }

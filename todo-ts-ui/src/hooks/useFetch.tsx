@@ -6,14 +6,14 @@ interface FetchResponse<T> {
   error: string | null;
 }
 
-export function useFetch<T>(url: string): FetchResponse<T> {
+export function useFetch<T>(url: string, refreshEvent:boolean): FetchResponse<T> {
   const [data, setData] = useState<T[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    setIsLoading(true);
     const fetchData = async () => {
-      setIsLoading(true);
       try {
         const response = await fetch(url);
         const json = await response.json();
@@ -26,7 +26,7 @@ export function useFetch<T>(url: string): FetchResponse<T> {
     };
 
     fetchData();
-  }, [url]);
+  }, [url, refreshEvent]);
 
   return {
     data,
