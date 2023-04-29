@@ -12,4 +12,11 @@ describe('<ViewTodoItem />', () => {
   it('renders', () => {
     cy.mount(<ViewTodoItem todoItem={todoItem} />)
   })
+
+  it('mark complete item', ()=> {
+    cy.mount(<ViewTodoItem todoItem={todoItem} />)
+    cy.get('button')
+      .contains('Complete')
+      .click() 
+  })
 })
