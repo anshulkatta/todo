@@ -30,4 +30,12 @@ public class TodoService {
     public Iterable<TodoItem> getAllItems() {
         return todoRepository.findAll();
     }
+
+    public void toggleComplete(Long id) {
+        todoRepository.
+                findById(id).ifPresent(todoItem -> {
+                    todoItem.setCompleted(!todoItem.isCompleted());
+                    todoRepository.save(todoItem);
+                });
+    }
 }

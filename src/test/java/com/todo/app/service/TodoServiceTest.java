@@ -13,8 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import java.util.ArrayList;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -59,5 +58,15 @@ public class TodoServiceTest {
         when(todoRepository.findAll()).thenReturn(new ArrayList<>());
 
         assertNotNull(todoService.getAllItems());
+    }
+
+    @Test
+    public void testMarkComplete() {
+        TodoItem todoItem = new TodoItem();
+        todoItem.setCompleted(false);
+        when(todoRepository.findById(1L)).thenReturn(Optional.of(todoItem));
+        when(todoRepository.save(any())).thenReturn(todoItem);
+
+        todoService.toggleComplete(1L);
     }
 }
