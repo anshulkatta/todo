@@ -3,6 +3,7 @@ import {useFetch} from 'src/hooks/useFetch'
 import TodoItem from 'src/model/TodoItem';
 import _ from 'lodash'
 import ViewTodoItem from 'src/components/todo-item/ViewTodoItem';
+import NoItem from 'src/components/no-item/NoItem';
 
 const {GET_ALL_TODO_ITEMS} = GET_PATHS
 
@@ -19,7 +20,7 @@ export default function ListTodoItems() {
                         </div>
                     </div>
                 )
-            }) : null}
+            }) : <NoItem />}
         </>
     )
 }
