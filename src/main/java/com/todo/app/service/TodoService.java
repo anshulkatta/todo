@@ -1,6 +1,10 @@
 package com.todo.app.service;
 
+import com.todo.app.dto.TodoItemDto;
 import com.todo.app.model.TodoItem;
+import com.todo.app.repo.TodoRepository;
+import com.todo.app.util.DtoMapperUtil;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,27 +13,21 @@ import java.util.List;
 @Service
 public class TodoService {
 
-    public void createTodoItem() {
-        // call Repo
+    private final TodoRepository todoRepository;
+
+    public TodoService(@Autowired TodoRepository todoRepository) {
+        this.todoRepository = todoRepository;
+    }
+
+    public TodoItem createTodoItem(TodoItemDto todoItemDto) {
+        return todoRepository.save(DtoMapperUtil.convertToEntity(todoItemDto));
     }
 
     public TodoItem getTodoItemById(Long id) {
-        // get by Id
-        return new TodoItem();
+        return todoRepository.findById(id).orElse(null);
     }
 
     public Iterable<TodoItem> getAllItems() {
-        List<TodoItem> todoItems = new ArrayList<>();
-        TodoItem todoItem = new TodoItem();
-        todoItem.setTitle("Todo Item 1");
-        todoItem.setCompleted(false);
-        todoItems.add(todoItem);
-
-        TodoItem todoItem2 = new TodoItem();
-        todoItem2.setTitle("Todo Item 2");
-        todoItem2.setCompleted(true);
-        todoItems.add(todoItem2);
-
-        return todoItems;
+        return todoRepository.findAll();
     }
 }

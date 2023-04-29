@@ -1,10 +1,22 @@
 package com.todo.app.model;
 
+import javax.persistence.*;
+
+@Entity
 public class TodoItem {
 
+    @Column
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String title;
+
+    @Column
     private String description;
+
+    @Column
     private boolean completed;
 
     // constructors, getters, and setters
