@@ -8,6 +8,7 @@ public class Constants {
     public static final String GET_BY_ID = "/{id}";
 
     public static final String GET_ALL = "/getAllItems";
+    public static final String POST_MARK_COMPLETE = "/markItemComplete";
 
     public static final String SUCCESS = "SUCCESS";
     public static final String FAILED = "FAILED";

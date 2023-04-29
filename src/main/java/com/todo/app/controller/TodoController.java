@@ -49,4 +49,8 @@ public class TodoController {
         );
     }
 
+    @PostMapping(Constants.POST_MARK_COMPLETE)
+    public void toggleComplete(@RequestBody String id) {
+        todoService.toggleComplete(Long.valueOf(id));
+    }
 }
