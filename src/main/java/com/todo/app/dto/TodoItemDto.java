@@ -2,6 +2,7 @@ package com.todo.app.dto;
 
 public class TodoItemDto {
 
+    private Long id;
     private String title;
     private String description;
     private boolean completed;
@@ -28,5 +29,13 @@ public class TodoItemDto {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
